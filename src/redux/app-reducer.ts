@@ -15,12 +15,6 @@ const appSlice = createSlice({
     name: "app",
     initialState: initialState,
     reducers: {
-        toggleIsInitialized(state, action) {
-            state.isInitialized = action.payload;
-        },
-        setListData(state, action) {
-            state.dataList = action.payload;
-        },
         setSearchedStr(state, action) {
             state.searchedStr = action.payload;
         },

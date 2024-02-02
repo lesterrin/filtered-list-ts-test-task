@@ -1,5 +1,5 @@
 import React from "react";
-import { setSearchedStr } from "../../redux/app-reducer";
+import {setSearchedStr} from "../../redux/app-reducer";
 import {useAppDispatch, useAppSelector} from "../../redux/store";
 import {searchedStrSelector} from "../../selectors/app-selector";
 

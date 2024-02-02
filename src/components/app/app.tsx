@@ -7,7 +7,7 @@ import Loader from "../loader/loader";
 import DataListContainer from "../dataList/dataListContainer";
 import Filter from "../filter/filter";
 
-function App() {
+const App = () => {
 
     const dispatch = useAppDispatch();
     const isInitialized = useAppSelector(isInitializedSelector);

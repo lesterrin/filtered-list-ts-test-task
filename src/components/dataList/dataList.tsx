@@ -1,14 +1,16 @@
 import React, {FC} from "react";
+import s from "./data-list.module.css";
 
 const DataList: FC<any> = ({listDataList}) => {
     return (
         <div>
-            <table>
+            <table className={s.styledTable}>
                 <thead>
-                <th>name</th>
-                <th>active</th>
-                <th>created</th>
-                <th></th>
+                <tr>
+                    <th>name</th>
+                    <th>active</th>
+                    <th>created</th>
+                </tr>
                 </thead>
                 <tbody>{listDataList}</tbody>
             </table>
