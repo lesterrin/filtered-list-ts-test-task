@@ -1,10 +1,11 @@
 import React, {useEffect} from 'react';
-import './App.css';
+import s from './app.module.css';
 import {useAppDispatch, useAppSelector} from "../../redux/store";
 import {initializeApp} from "../../redux/app-reducer";
-import {dataListSelector, isInitializedSelector} from "../../selectors/appSelector";
+import {isInitializedSelector} from "../../selectors/app-selector";
 import Loader from "../loader/loader";
 import DataListContainer from "../dataList/dataListContainer";
+import Filter from "../filter/filter";
 
 function App() {
 
@@ -17,7 +18,8 @@ function App() {
 
     if (isInitialized) {
         return (
-            <div>
+            <div className={s.container}>
+                <Filter/>
                 <DataListContainer/>
             </div>
         );

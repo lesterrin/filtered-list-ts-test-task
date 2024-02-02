@@ -3,10 +3,12 @@ import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 import {ThunkAction} from "redux-thunk";
 import {DataType, InferActionsTypes} from "../types";
 import {AppStateType} from "./store";
+import {getExistedTextFieldName} from "../helpers/utils";
 
 const initialState = {
     isInitialized: false as boolean,
-    dataList: [] as Array<DataType>
+    dataList: [] as Array<DataType>,
+    searchedStr: ""
 }
 
 const appSlice = createSlice({
@@ -18,6 +20,19 @@ const appSlice = createSlice({
         },
         setListData(state, action) {
             state.dataList = action.payload;
+        },
+        setSearchedStr(state, action) {
+            state.searchedStr = action.payload;
+        },
+        setNewTextFieldValue(state, action) {
+
+            state.dataList = state.dataList.map(e => {
+                if (e.id == action.payload.id) {
+                    let existedTextFieldName = getExistedTextFieldName(e);
+                    e[existedTextFieldName] = action.payload.newValue;
+                    return e;
+                } else return e
+            })
         }
     },
     extraReducers: (builder) => {
@@ -39,4 +54,5 @@ export const initializeApp = createAsyncThunk(
 type ActionsTypes = InferActionsTypes<typeof actions>;
 export type ThunkType = ThunkAction<void, AppStateType, unknown, ActionsTypes>;
 
+export const {setNewTextFieldValue, setSearchedStr} = actions;
 export default reducer;

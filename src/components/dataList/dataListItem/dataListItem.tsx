@@ -1,12 +1,12 @@
 import React, {FC} from "react";
 
-const DataListItem: FC<any> = ({id, active, textField}) => {
+const DataListItem: FC<any> = ({id, active, textField, openModal}) => {
     return (
         <tr>
             <td>{textField}</td>
             <td>{active ? "active" : "inactive"}</td>
             <td>
-                <button>edit</button>
+                <button onClick={()=>openModal(id)}>edit</button>
             </td>
         </tr>
     )
