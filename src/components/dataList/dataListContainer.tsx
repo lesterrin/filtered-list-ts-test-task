@@ -1,10 +1,10 @@
 import DataList from "./dataList"
 import React, {FC, useEffect, useState} from "react";
 import {useAppDispatch, useAppSelector} from "../../redux/store";
-import {dataListSelector, editedRowTextFieldSelector, searchedStrSelector} from "../../selectors/app-selector";
-import {setNewTextFieldValue} from "../../redux/app-reducer";
+import {dataListSelector, editedRowTextFieldSelector, searchedStrSelector} from "../../selectors/appSelector";
+import {setNewTextFieldValue} from "../../redux/appReducer";
 import DataListItem from "./dataListItem/dataListItem";
-import EditModal from "../modal/edit-modal";
+import EditModal from "../modal/editModal";
 import {getExistedTextFieldName} from "../../helpers/utils";
 
 const DataListContainer: FC = () => {

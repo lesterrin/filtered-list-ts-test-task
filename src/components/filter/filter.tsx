@@ -1,7 +1,7 @@
 import React from "react";
-import {setSearchedStr} from "../../redux/app-reducer";
+import {setSearchedStr} from "../../redux/appReducer";
 import {useAppDispatch, useAppSelector} from "../../redux/store";
-import {searchedStrSelector} from "../../selectors/app-selector";
+import {searchedStrSelector} from "../../selectors/appSelector";
 import s from "./filter.module.css";
 import CustomInput from "../ui/customInput/customInput";
 

@@ -1,8 +1,6 @@
 import {getListData} from '../api/api';
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
-import {ThunkAction} from "redux-thunk";
-import {DataType, InferActionsTypes} from "../types";
-import {AppStateType} from "./store";
+import {DataType} from "../types";
 import {getExistedTextFieldName} from "../helpers/utils";
 
 const initialState = {
@@ -45,10 +43,6 @@ const {actions, reducer} = appSlice;
 export const initializeApp = createAsyncThunk(
     'app/initializeApp',
     async () => await getListData());
-
-
-type ActionsTypes = InferActionsTypes<typeof actions>;
-export type ThunkType = ThunkAction<void, AppStateType, unknown, ActionsTypes>;
 
 export const {setNewTextFieldValue, setSearchedStr} = actions;
 export default reducer;

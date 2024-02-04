@@ -1,5 +1,5 @@
 import React, {FC, useState} from "react";
-import s from './edit-modal.module.css';
+import s from './editModal.module.css';
 import CustomInput from "../ui/customInput/customInput";
 import CustomButton from "../ui/customButton/customButton";
 

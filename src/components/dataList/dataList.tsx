@@ -1,5 +1,5 @@
 import React, {FC} from "react";
-import s from "./data-list.module.css";
+import s from "./dataList.module.css";
 
 const DataList: FC<any> = ({listDataList}) => {
     return (
