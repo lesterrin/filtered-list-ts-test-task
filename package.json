@@ -20,6 +20,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "dev": "concurrently \"npm run server\" \"npm run start\"",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -45,6 +46,7 @@
     ]
   },
   "devDependencies": {
-    "axios": "^1.6.7"
+    "axios": "^1.6.7",
+    "concurrently": "^8.2.2"
   }
 }

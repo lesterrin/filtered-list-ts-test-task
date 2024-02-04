@@ -7,9 +7,10 @@ const DataList: FC<any> = ({listDataList}) => {
             <table className={s.styledTable}>
                 <thead>
                 <tr>
-                    <th>name</th>
-                    <th>active</th>
-                    <th>created</th>
+                    <th>Name</th>
+                    <th>Active</th>
+                    <th>Created</th>
+                    <th></th>
                 </tr>
                 </thead>
                 <tbody>{listDataList}</tbody>

@@ -1,16 +1,20 @@
 import DataList from "./dataList"
-import React, {FC, useState} from "react";
+import React, {FC, useEffect, useState} from "react";
 import {useAppDispatch, useAppSelector} from "../../redux/store";
 import {dataListSelector, editedRowTextFieldSelector, searchedStrSelector} from "../../selectors/app-selector";
 import {setNewTextFieldValue} from "../../redux/app-reducer";
 import DataListItem from "./dataListItem/dataListItem";
 import EditModal from "../modal/edit-modal";
-import {getTextField} from "../../helpers/utils";
+import {getExistedTextFieldName} from "../../helpers/utils";
 
-const DataListContainer: FC<any> = () => {
-
+const DataListContainer: FC = () => {
 
     const dispatch = useAppDispatch();
+
+    const openModal = (id: number) => {
+        setEditedRowId(id);
+        setIsModalOpen(true);
+    }
 
     const editTextField = (id: number, newValue: string) => {
         dispatch(setNewTextFieldValue({id, newValue}));
@@ -19,24 +23,25 @@ const DataListContainer: FC<any> = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [editedRowId, setEditedRowId] = useState(0);
 
-    const editedRowTextField = useAppSelector(editedRowTextFieldSelector(editedRowId));
+    useEffect(() => {
+        if (document) {
+            document.body.style.overflow = isModalOpen ? 'hidden' : 'auto'
+        }
+    }, [isModalOpen])
 
-    const openModal = (id: number) => {
-        setEditedRowId(id);
-        setIsModalOpen(true);
-    }
+    const editedRowTextField = useAppSelector(editedRowTextFieldSelector(editedRowId));
 
     const searchedStr = useAppSelector(searchedStrSelector);
     const listData = useAppSelector(dataListSelector(searchedStr));
     const listDataList = listData.map(e => {
 
-            //Переписать
-            let textField = getTextField(e);
+            let textField = e[getExistedTextFieldName(e)];
 
             return <DataListItem key={e.id}
                                  id={e.id}
-                                 active={e.active}
+                                 isActive={e.active}
                                  textField={textField}
+                                 created={e.createdAt}
                                  openModal={openModal}
             />
         }

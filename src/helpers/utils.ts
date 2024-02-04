@@ -1,19 +1,12 @@
-export const getTextField = (obj: any) => {
-    let textField = "";
-    //переписать
-    if (obj && obj.title) textField = obj.title;
-    if (obj && obj.name) textField = obj.name;
-    if (obj && obj.description) textField = obj.description;
+import {DataType} from "../types";
 
-    return textField;
-}
-
-export const getExistedTextFieldName = (obj:any) => {
+//фунцкия возвращает имя текстового поля, которое в дальнейшем будет редактироваться или отображаться в поле name
+export const getExistedTextFieldName = (obj: DataType) => {
     let existedTextFieldName = "";
-    //переписать
-    if (obj.title) existedTextFieldName = "title";
-    if (obj.name) existedTextFieldName = "name";
-    if (obj.description) existedTextFieldName = "description";
+
+    if (obj && obj.title) existedTextFieldName = "title";
+    if (obj && obj.name) existedTextFieldName = "name";
+    if (obj && obj.description) existedTextFieldName = "description";
 
     return existedTextFieldName;
 }

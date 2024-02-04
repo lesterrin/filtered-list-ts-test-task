@@ -32,8 +32,10 @@ const appSlice = createSlice({
     extraReducers: (builder) => {
         builder
             .addCase(initializeApp.fulfilled, (state, action) => {
-                state.isInitialized = true;
-                state.dataList = action.payload;
+                if (action.payload) {
+                    state.isInitialized = true;
+                    state.dataList = action.payload;
+                }
             })
     }
 })

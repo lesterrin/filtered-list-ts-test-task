@@ -1,0 +1,7 @@
+.filterWrapper{
+    text-align: right;
+}
+
+.filterWrapper input{
+    width: 250px;
+}

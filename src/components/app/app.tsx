@@ -18,10 +18,10 @@ const App = () => {
 
     if (isInitialized) {
         return (
-            <div className={s.container}>
+            <main className={s.container}>
                 <Filter/>
                 <DataListContainer/>
-            </div>
+            </main>
         );
     } else {
         return <Loader/>
